@@ -1,11 +1,13 @@
 using System;
-using System.Net.Http;
 using System.Windows.Forms;
+using PostmanCloneLibrary;
 
 namespace PostmanCloneUI
 {
     public partial class Dashboard : Form
     {
+        private readonly IApiAccess _apiAccess = new ApiAccess();
+
         public Dashboard()
         {
             InitializeComponent();
@@ -13,48 +15,62 @@ namespace PostmanCloneUI
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            // This will run when the form loads
-            statusLabel.Text = "Ready";
+            SetStatus("Ready");
         }
 
         private void labelHeader_Click(object sender, EventArgs e)
         {
-            // Optional action when clicking the title
             MessageBox.Show("Welcome to the Postman Clone!");
         }
 
         private void textBoxApi_TextChanged(object sender, EventArgs e)
         {
-            // Optional: Handle changes in the API textbox if needed
+            // enable/disable the Call API button
         }
 
         private async void buttonCallApi_Click(object sender, EventArgs e)
         {
             string url = textBoxApi.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(url))
+            if (string.IsNullOrWhiteSpace(url) == true)
             {
-                MessageBox.Show("Please enter a valid API URL.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter an API URL.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (_apiAccess.IsValidUrl(url) == false)
+            {
+                MessageBox.Show("Please enter a valid HTTPS URL.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                statusLabel.Text = "Calling API...";
-                using (HttpClient client = new HttpClient())
-                {
-                    var response = await client.GetAsync(url);
-                    string result = await response.Content.ReadAsStringAsync();
+                SetStatus("Calling API...");
 
-                    textBoxResults.Text = result;
-                    statusLabel.Text = $"Status: {(int)response.StatusCode} {response.ReasonPhrase}";
+                string result = await _apiAccess.CallApi(url);
+
+                textBoxResults.Text = result;
+
+                if (result.StartsWith("Error:") == true)
+                {
+                    SetStatus(result);
+                }
+                else
+                {
+                    SetStatus("Call successful.");
                 }
             }
             catch (Exception ex)
             {
-                textBoxResults.Text = "Error: " + ex.Message;
-                statusLabel.Text = "Error";
+                textBoxResults.Text = $"Exception: {ex.Message}";
+                SetStatus("Error");
             }
+        }
+
+        private void SetStatus(string message)
+        {
+            statusLabel.Text = message;
         }
     }
 }

@@ -17,125 +17,132 @@
 
         private void InitializeComponent()
         {
-            labelHeader = new Label();
-            labelApi = new Label();
-            textBoxApi = new TextBox();
-            buttonCallApi = new Button();
-            textBoxResults = new TextBox();
-            statusStrip = new StatusStrip();
-            statusLabel = new ToolStripStatusLabel();
-            labelResults = new Label();
-            statusStrip.SuspendLayout();
-            SuspendLayout();
+            this.labelHeader = new System.Windows.Forms.Label();
+            this.labelApi = new System.Windows.Forms.Label();
+            this.textBoxApi = new System.Windows.Forms.TextBox();
+            this.buttonCallApi = new System.Windows.Forms.Button();
+            this.textBoxResults = new System.Windows.Forms.RichTextBox();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelResults = new System.Windows.Forms.Label();
+            this.statusStrip.SuspendLayout();
+            this.SuspendLayout();
             // 
             // labelHeader
             // 
-            labelHeader.AutoSize = true;
-            labelHeader.Font = new Font("Segoe UI", 25.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelHeader.Location = new Point(38, 9);
-            labelHeader.Name = "labelHeader";
-            labelHeader.Size = new Size(308, 59);
-            labelHeader.TabIndex = 0;
-            labelHeader.Text = "Postman Clone";
-            labelHeader.Click += labelHeader_Click;
+            this.labelHeader.AutoSize = true;
+            this.labelHeader.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHeader.Location = new System.Drawing.Point(28, 0);
+            this.labelHeader.Name = "labelHeader";
+            this.labelHeader.Size = new System.Drawing.Size(308, 59);
+            this.labelHeader.TabIndex = 0;
+            this.labelHeader.Text = "Postman Clone";
+            this.labelHeader.Click += new System.EventHandler(this.labelHeader_Click);
             // 
             // labelApi
             // 
-            labelApi.AutoSize = true;
-            labelApi.Location = new Point(37, 68);
-            labelApi.Name = "labelApi";
-            labelApi.Size = new Size(69, 41);
-            labelApi.TabIndex = 1;
-            labelApi.Text = "API:";
+            this.labelApi.AutoSize = true;
+            this.labelApi.Location = new System.Drawing.Point(37, 66);
+            this.labelApi.Name = "labelApi";
+            this.labelApi.Size = new System.Drawing.Size(69, 41);
+            this.labelApi.TabIndex = 1;
+            this.labelApi.Text = "API:";
             // 
             // textBoxApi
             // 
-            textBoxApi.BorderStyle = BorderStyle.None;
-            textBoxApi.Location = new Point(112, 71);
-            textBoxApi.Name = "textBoxApi";
-            textBoxApi.Size = new Size(638, 40);
-            textBoxApi.TabIndex = 2;
-            textBoxApi.TextChanged += textBoxApi_TextChanged;
+            this.textBoxApi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxApi.Location = new System.Drawing.Point(99, 64);
+            this.textBoxApi.Name = "textBoxApi";
+            this.textBoxApi.Size = new System.Drawing.Size(656, 40);
+            this.textBoxApi.TabIndex = 2;
+            this.textBoxApi.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.textBoxApi.TextChanged += new System.EventHandler(this.textBoxApi_TextChanged);
             // 
             // buttonCallApi
             // 
-            buttonCallApi.Location = new Point(756, 68);
-            buttonCallApi.Name = "buttonCallApi";
-            buttonCallApi.RightToLeft = RightToLeft.No;
-            buttonCallApi.Size = new Size(74, 41);
-            buttonCallApi.TabIndex = 3;
-            buttonCallApi.Text = "GO";
-            buttonCallApi.UseVisualStyleBackColor = true;
-            buttonCallApi.Click += buttonCallApi_Click;
+            this.buttonCallApi.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCallApi.Location = new System.Drawing.Point(761, 64);
+            this.buttonCallApi.Name = "buttonCallApi";
+            this.buttonCallApi.Size = new System.Drawing.Size(74, 40);
+            this.buttonCallApi.TabIndex = 3;
+            this.buttonCallApi.Text = "GO";
+            this.buttonCallApi.UseVisualStyleBackColor = true;
+            this.buttonCallApi.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            this.buttonCallApi.Click += new System.EventHandler(this.buttonCallApi_Click);
             // 
             // textBoxResults
             // 
-            textBoxResults.Location = new Point(37, 158);
-            textBoxResults.Multiline = true;
-            textBoxResults.Name = "textBoxResults";
-            textBoxResults.ScrollBars = ScrollBars.Both;
-            textBoxResults.WordWrap = false;
-            textBoxResults.Size = new Size(883, 342);
-            textBoxResults.TabIndex = 4;
+            this.textBoxResults.Location = new System.Drawing.Point(38, 151);
+            this.textBoxResults.Name = "textBoxResults";
+            this.textBoxResults.Size = new System.Drawing.Size(912, 385);
+            this.textBoxResults.TabIndex = 4;
+            this.textBoxResults.ReadOnly = true;
+            this.textBoxResults.WordWrap = false;
+            this.textBoxResults.Font = new System.Drawing.Font("Consolas", 10);
+            this.textBoxResults.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.textBoxResults.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
             // 
             // statusStrip
             // 
-            statusStrip.ImageScalingSize = new Size(20, 20);
-            statusStrip.Items.AddRange(new ToolStripItem[] { statusLabel });
-            statusStrip.Location = new Point(0, 539);
-            statusStrip.Name = "statusStrip";
-            statusStrip.Size = new Size(980, 44);
-            statusStrip.TabIndex = 5;
-            statusStrip.Text = "statusStrip";
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(980, 44);
+            this.statusStrip.TabIndex = 5;
+            this.statusStrip.Text = "statusStrip";
+            this.statusStrip.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             // 
             // statusLabel
             // 
-            statusLabel.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(92, 38);
-            statusLabel.Text = "Ready";
+            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(92, 38);
+            this.statusLabel.Text = "Ready";
             // 
             // labelResults
             // 
-            labelResults.AutoSize = true;
-            labelResults.Location = new Point(38, 114);
-            labelResults.Name = "labelResults";
-            labelResults.Size = new Size(98, 41);
-            labelResults.TabIndex = 6;
-            labelResults.Text = "Result";
+            this.labelResults.AutoSize = true;
+            this.labelResults.Location = new System.Drawing.Point(37, 107);
+            this.labelResults.Name = "labelResults";
+            this.labelResults.Size = new System.Drawing.Size(98, 41);
+            this.labelResults.TabIndex = 6;
+            this.labelResults.Text = "Result";
             // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(17F, 41F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(980, 583);
-            Controls.Add(labelResults);
-            Controls.Add(statusStrip);
-            Controls.Add(textBoxResults);
-            Controls.Add(buttonCallApi);
-            Controls.Add(textBoxApi);
-            Controls.Add(labelApi);
-            Controls.Add(labelHeader);
-            Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(6);
-            Name = "Dashboard";
-            Text = "Postman Clone by Gheorghe Pislea";
-            Load += Dashboard_Load;
-            statusStrip.ResumeLayout(false);
-            statusStrip.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(980, 583);
+            this.Controls.Add(this.labelResults);
+            this.Controls.Add(this.statusStrip);
+            this.Controls.Add(this.textBoxResults);
+            this.Controls.Add(this.buttonCallApi);
+            this.Controls.Add(this.textBoxApi);
+            this.Controls.Add(this.labelApi);
+            this.Controls.Add(this.labelHeader);
+            this.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.Name = "Dashboard";
+            this.Text = "Postman Clone by Gheorghe Pislea";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion
 
-        private Label labelHeader;
-        private Label labelApi;
-        private TextBox textBoxApi;
-        private Button buttonCallApi;
-        private TextBox textBoxResults;
-        private StatusStrip statusStrip;
-        private Label labelResults;
-        private ToolStripStatusLabel statusLabel;
+        private System.Windows.Forms.Label labelHeader;
+        private System.Windows.Forms.Label labelApi;
+        private System.Windows.Forms.TextBox textBoxApi;
+        private System.Windows.Forms.Button buttonCallApi;
+        private System.Windows.Forms.RichTextBox textBoxResults;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.Label labelResults;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabel;
     }
 }
