@@ -11,6 +11,7 @@ namespace PostmanCloneUI
         public Dashboard()
         {
             InitializeComponent();
+            comboBox1.SelectedItem = "GET";
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -50,6 +51,8 @@ namespace PostmanCloneUI
 
                 string result = await _apiAccess.CallApi(url);
 
+                callData.SelectedTab = resultsTab;
+
                 textBoxResults.Text = result;
 
                 if (result.StartsWith("Error:") == true)
@@ -71,6 +74,16 @@ namespace PostmanCloneUI
         private void SetStatus(string message)
         {
             statusLabel.Text = message;
+        }
+
+        private void outputTab_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxResults_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
