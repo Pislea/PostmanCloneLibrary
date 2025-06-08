@@ -70,7 +70,7 @@
             comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             comboBox1.FormattingEnabled = true;
             comboBox1.IntegralHeight = false;
-            comboBox1.Items.AddRange(new object[] { "GET", "POST" });
+            comboBox1.Items.AddRange(new object[] { "GET", "POST", "PUT", "DELETE" });
             comboBox1.Location = new System.Drawing.Point(103, 77);
             comboBox1.Margin = new System.Windows.Forms.Padding(2);
             comboBox1.Name = "comboBox1";

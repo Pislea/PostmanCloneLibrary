@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json;
 using System.Windows.Forms;
 using PostmanCloneLibrary;
 
@@ -11,7 +12,7 @@ namespace PostmanCloneUI
         public Dashboard()
         {
             InitializeComponent();
-            comboBox1.SelectedItem = "GET";
+            comboBox1.SelectedItem = "GET"; // Set default verb
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -26,7 +27,7 @@ namespace PostmanCloneUI
 
         private void textBoxApi_TextChanged(object sender, EventArgs e)
         {
-            // enable/disable the Call API button
+            // enable or disable the button based on input
         }
 
         private async void buttonCallApi_Click(object sender, EventArgs e)
@@ -45,14 +46,41 @@ namespace PostmanCloneUI
                 return;
             }
 
+            if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an HTTP verb.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            HttpAction action;
+            if (Enum.TryParse(comboBox1.SelectedItem.ToString(), out action) == false)
+            {
+                MessageBox.Show("Invalid HTTP verb selected.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 SetStatus("Calling API...");
 
-                string result = await _apiAccess.CallApi(url);
+                // Validate JSON only for POST and PUT
+                if (action == HttpAction.POST || action == HttpAction.PUT)
+                {
+                    try
+                    {
+                        JsonDocument.Parse(bodyText.Text);
+                    }
+                    catch (JsonException)
+                    {
+                        MessageBox.Show("The JSON in the Body tab is not valid.", "Invalid JSON", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
+                string jsonPayload = bodyText.Text;
+                string result = await _apiAccess.CallApi(url, action: action, jsonPayload: jsonPayload);
 
                 callData.SelectedTab = resultsTab;
-
                 textBoxResults.Text = result;
 
                 if (result.StartsWith("Error:") == true)
@@ -78,12 +106,12 @@ namespace PostmanCloneUI
 
         private void outputTab_Click(object sender, EventArgs e)
         {
-
+            // : handle when user clicks on Results tab
         }
 
         private void textBoxResults_TextChanged(object sender, EventArgs e)
         {
-
+            // : handle when result text changes
         }
     }
 }
