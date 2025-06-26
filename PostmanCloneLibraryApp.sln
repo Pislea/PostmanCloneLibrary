@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostmanCloneLibrary", "PostmanCloneLibrary\PostmanCloneLibrary.csproj", "{F1724675-9888-4264-9CCF-05255C5DDFCA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostmanCloneUI", "PostmanCloneUI\PostmanCloneUI.csproj", "{7CE2A243-FBBF-465F-B54E-6929E6E8849A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.UI", "WPF.UI\WPF.UI.csproj", "{FD27E00E-FEBA-43F3-9B30-49B786650AF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7CE2A243-FBBF-465F-B54E-6929E6E8849A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CE2A243-FBBF-465F-B54E-6929E6E8849A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CE2A243-FBBF-465F-B54E-6929E6E8849A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD27E00E-FEBA-43F3-9B30-49B786650AF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD27E00E-FEBA-43F3-9B30-49B786650AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD27E00E-FEBA-43F3-9B30-49B786650AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD27E00E-FEBA-43F3-9B30-49B786650AF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
